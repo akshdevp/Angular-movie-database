@@ -11,5 +11,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Login credientials
 
-Go to datbase.service.ts there you can find the user name and password for the application
+Go to data.service.ts there you can find the user name and password for the application
 
