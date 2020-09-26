@@ -1,0 +1,30 @@
+<div class="container" style="padding:64px;">
+  <div class="row">
+    <div class="col-10">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchModel" placeholder="Search">
+      </div>
+    </div>
+    <div class="col-2">
+      <a *ngIf="isAdmin" [routerLink]="['new']" class="btn btn-primary ">Add New movie</a>
+    </div>
+  </div>
+
+
+
+  <div style="padding-top:20px;" class="container">
+    <div class="card" *ngFor="let movie of movies | moviesFilter: searchModel;"
+      style="width: 30%; display: inline-flex; margin-top: 20px; margin-left: 20px;">
+      <img [src]="movie.img_uri" class="card-img-top " alt="... ">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.name}}</h5>
+        <p class="card-text"><strong>description:</strong>{{movie.description}}</p>
+        <app-rating  [rating]='movie.rating' [itemId]='movie.id' [readonly]="true"></app-rating>
+        <a [routerLink]="['details', movie.id]" class="btn btn-primary ">View More</a>
+        <button style="margin-left : 75px" *ngIf="isAdmin" type="submit" class="btn btn-primary" (click)="deleteMovie(movie.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+

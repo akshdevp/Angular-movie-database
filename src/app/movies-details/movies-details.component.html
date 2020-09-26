@@ -1,0 +1,48 @@
+
+<div class="card " style="width: 500px; margin-top: 70px; margin-left: 450px;;">
+  <img class="card-img-top" [src]="selectedMovie.img_uri" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-title"><strong>MOVIE:</strong>{{selectedMovie.name}}</p>
+    <p class="card-text"><strong>DESCRIPTION:</strong>{{selectedMovie.description}}</p>
+  </div>
+  <p class="card-text" style="height: 40px; margin-left: 150px;">
+    <app-rating [rating]='selectedMovie.rating' [itemId]='selectedMovie.id' (ratingClick)='ratingComponentClick($event)' [readonly]="false"></app-rating>
+  </p>
+</div>
+
+<div class="container">
+  <form #cform="ngForm" (ngSubmit)="onClickSubmit(cform)">
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea name="comment" ngModel class="form-control" rows="5" id="comment"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+</div>
+
+
+
+<div  *ngFor="let c of selectedMovie.comments" class="container">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+          <p class="text-secondary text-center">15 Minutes Ago</p>
+        </div>
+        <div class="col-md-10">
+          <div class="clearfix"></div>
+          <p >{{c.name}}</p>
+          <p >{{c.comment}}</p>
+          <p>
+            <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
+            <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
