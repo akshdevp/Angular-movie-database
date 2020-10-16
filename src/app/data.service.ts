@@ -122,7 +122,7 @@ export class DataService {
       img_uri: 'assets/movies/qk.jpg',
       description: "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities",
       comments: [],
-      rating: 2,
+      rating: 3,
     },
   ];
 
